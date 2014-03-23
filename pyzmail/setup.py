@@ -5,11 +5,6 @@
 
 import sys
 
-if sys.version_info >= (3,):
-    # distribute is required for py3k
-    from distribute_setup import use_setuptools
-    use_setuptools()
-
 import sys, os, shutil
 
 try:
@@ -105,14 +100,6 @@ if 'py2exe' in sys.argv and os.name=='nt':
 
 data_files.append( (doc_dir, [ 'README.txt', 'Changelog.txt', 'LICENSE.txt']) )
 
-# support for python 3.x with "distribute"       
-if sys.version_info >= (3,):
-    # avoid setuptools to report unknown options under python 2.X
-    extra_options['use_2to3'] = True
-    # extra_options['convert_2to3_doctests'] = ['src/your/module']
-    # extra_options['use_2to3_fixers'] = ['your.fixers' ]
-    extra_options['install_requires']=['distribute'], # be sure we are using distribute      
-       
 setup(name='pyzmail',
       version=version, 
       author='Alain Spineux',
