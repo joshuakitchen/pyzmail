@@ -1,3 +1,5 @@
+Note: Fork with conversion 2to3.py, setup script needs to be rewritten.
+
 pyzmail
 =======
 
@@ -6,5 +8,3 @@ Pyzmail hides the problems of using multiple encoding and the complexity of the 
 Pyzmail is available for python 2.6+ and 3.2+ under the LGPL license.
 
 More info here: http://www.magiksys.net/pyzmail
-
-
