@@ -1,5 +1,3 @@
-Note: Fork with conversion 2to3.py, setup script needs to be rewritten.
-
 pyzmail
 =======
 
