@@ -43,15 +43,15 @@ def sanitize_filename(filename, alt_name, alt_ext):
     'number1.txt'
     >>> sanitize_filename(None, 'file', '.txt')
     'file.txt'
-    >>> sanitize_filename(u'R\\xe9pertoir.txt', 'file', '.txt')
+    >>> sanitize_filename('R\\xe9pertoir.txt', 'file', '.txt')
     'Rpertoir.txt'
     >>> # the '\\xe9' has been removed
-    >>> sanitize_filename(u'\\xe9\\xe6.html', 'file', '.txt')
+    >>> sanitize_filename('\\xe9\\xe6.html', 'file', '.txt')
     'file.html'
     >>> # all non us-ascii characters have been removed, the alternative name
     >>> # has been used the replace empty string. The originale extention
     >>> # is still valid  
-    >>> sanitize_filename(u'COM1.txt', 'file', '.txt')
+    >>> sanitize_filename('COM1.txt', 'file', '.txt')
     'COM1A.txt'
     >>> # if name match an invalid name or assimilated then a A is added
     """
@@ -59,7 +59,7 @@ def sanitize_filename(filename, alt_name, alt_ext):
     if not filename:
         return alt_name+alt_ext
 
-    if ((sys.version_info<(3, 0) and isinstance(filename, unicode)) or \
+    if ((sys.version_info<(3, 0) and isinstance(filename, str)) or \
         (sys.version_info>=(3, 0) and isinstance(filename, str))):
         filename=filename.encode('ascii', 'ignore')
     
@@ -137,9 +137,9 @@ def is_usascii(value):
     
     >>> is_usascii('foo')
     True
-    >>> is_usascii(u'foo')
+    >>> is_usascii('foo')
     True
-    >>> is_usascii(u'Fran\xe7ais')
+    >>> is_usascii('Fran\xe7ais')
     False
     >>> is_usascii('bad\x81')
     False
