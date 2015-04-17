@@ -312,7 +312,7 @@ def complete_mail(message, sender, recipients, subject, default_charset, cc=[], 
         else:
             return address
 
-    mail_from=getaddr(sender[1])
+    mail_from=getaddr(sender)
     rcpt_to=map(getaddr, recipients)
     rcpt_to.extend(map(getaddr, cc))
     rcpt_to.extend(map(getaddr, bcc))
